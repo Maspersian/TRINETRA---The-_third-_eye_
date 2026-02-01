@@ -22,16 +22,30 @@ public class UIPanel : MonoBehaviour
 
     public void Hide()
     {
-        StartFade(0f, false);
+        // Only start fade if the GameObject is active
+        if (gameObject.activeInHierarchy)
+        {
+            StartFade(0f, false);
+        }
+        else
+        {
+            // If already inactive, just ensure it stays inactive
+            gameObject.SetActive(false);
+        }
     }
 
     private void StartFade(float targetAlpha, bool interactable)
     {
+        // Ensure GameObject is active before starting coroutine
+        if (!gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(true);
+        }
+
         if (fadeRoutine != null)
             StopCoroutine(fadeRoutine);
 
         fadeRoutine = StartCoroutine(FadeRoutine(targetAlpha, interactable));
-
     }
 
     private IEnumerator FadeRoutine(float targetAlpha, bool interactable)
