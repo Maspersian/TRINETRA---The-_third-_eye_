@@ -58,12 +58,29 @@ public class DragHeads : MonoBehaviour,
     {
         float dist = Vector2.Distance(rect.position, snapPoint.transform.position);
 
-        // ❌ Wrong head OR too far
-        if (pieceID != snapPoint.correctBodyID || dist > DragManager.Instance.snapDistance)
+        if (dist > DragManager.Instance.snapDistance)
         {
+            Debug.Log("Too far from snap point");
             rect.position = startPos;
             return;
         }
+        // ❌ Wrong head OR too far
+        if (pieceID != snapPoint.correctBodyID)
+        {
+            Debug.Log("Incorrect Face ID");
+            StartigScript.instance.incorrectFaceCount++;
+            Debug.Log("Incorrect Face Count: " + StartigScript.instance.incorrectFaceCount);
+            rect.position = startPos;
+            if(StartigScript.instance.incorrectFaceCount >= 2)
+            {
+                Debug.Log("GAME OVER - Too many incorrect attempts");
+                StartigScript.instance.timer.SetActive(false);
+                StartigScript.instance.GameOver();
+                // Optionally, you can add more game over logic here
+            }
+            return;
+        }
+       
 
         // ✅ Correct head
         rect.position = snapPoint.transform.position;

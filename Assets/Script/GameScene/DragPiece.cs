@@ -82,7 +82,7 @@ public class DragPiece : MonoBehaviour
             snapped = true;
             StartigScript.instance.countNumber++;
             countOfPieces+=1;
-           UnityEngine. Debug.Log(countOfPieces+"Count of piceces "+ StartigScript.instance.countNumber+" in stating script");
+          // UnityEngine. Debug.Log(countOfPieces+"Count of piceces "+ StartigScript.instance.countNumber+" in stating script");
 
             if (StartigScript.instance.countNumber==16)
             {
