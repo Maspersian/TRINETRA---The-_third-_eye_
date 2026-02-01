@@ -6,7 +6,7 @@ public class GameFlowManager : MonoBehaviour
 {
     public static GameFlowManager Instance;
     public static event Action<GameState> OnGameStateChanged;
-    public int countNumber;
+
     public GameState CurrentState { get; private set; }
 
     private void Awake()
@@ -25,13 +25,15 @@ public class GameFlowManager : MonoBehaviour
     {
         CurrentState = newState;
         OnGameStateChanged?.Invoke(CurrentState);
+        Debug.Log("Current State: " + CurrentState.ToString());
     }
 
     // Shortcuts
-    public void Pause() => ChangeState(GameState.Paused);
+   /*  public void Pause() => ChangeState(GameState.Paused);
     public void Playing() => ChangeState(GameState.Playing);
     public void GameOver() => ChangeState(GameState.GameOver);
     public void MainMenu() => ChangeState(GameState.MainMenu);
+    public void Collection() => ChangeState(GameState.collection); */
 }
 public enum GameState
 {
@@ -39,5 +41,8 @@ public enum GameState
     MainMenu,
     Playing,
     Paused,
-    GameOver
+    GameOver,
+    collection,
+    Round1Panel,
+    Round2Panel
 }

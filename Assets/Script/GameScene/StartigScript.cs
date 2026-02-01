@@ -47,7 +47,7 @@ public class StartigScript : MonoBehaviour
                 bodyImage.sprite = body[0];
                 headSnapPoint.correctBodyID = 0;
                 artHeading.text = " KADHAKALI ".ToString();
-                artHeading.text = " Kathakali is a classical dance-drama from Kerala, known for its bold makeup, large headgear, and expressive eye movements. It tells stories from Indian epics like the Ramayana and Mahabharata. ".ToString();
+                artBody.text = " Kathakali is a classical dance-drama from Kerala, known for its bold makeup, large headgear, and expressive eye movements. It tells stories from Indian epics like the Ramayana and Mahabharata. ".ToString();
 
             }
             // clueTest = clue[randomNum];
@@ -57,7 +57,7 @@ public class StartigScript : MonoBehaviour
                 bodyImage.sprite = body[1];
                 headSnapPoint.correctBodyID = 1;
                 artHeading.text = " THEYYAM ".ToString();
-                artHeading.text = " Theyyam is a ritual art form of North Kerala, where the performer is believed to become the deity during the performance. It features fiery costumes, face painting, and powerful movements. ".ToString();
+                artBody.text = " Theyyam is a ritual art form of North Kerala, where the performer is believed to become the deity during the performance. It features fiery costumes, face painting, and powerful movements. ".ToString();
 
             }
             else if (randomNum == 2)
@@ -66,7 +66,7 @@ public class StartigScript : MonoBehaviour
                 bodyImage.sprite = body[2];
                 headSnapPoint.correctBodyID = 2;
                 artHeading.text = " YAKSHAGANA ".ToString();
-                artHeading.text = " Yakshagana is a vibrant theatre dance form from Karnataka, combining dance, music, dialogue, and colorful costumes. Performances usually happen at night and narrate mythological stories. ".ToString();
+                artBody.text = " Yakshagana is a vibrant theatre dance form from Karnataka, combining dance, music, dialogue, and colorful costumes. Performances usually happen at night and narrate mythological stories. ".ToString();
             }
             else if (randomNum == 3)
             {
@@ -74,7 +74,7 @@ public class StartigScript : MonoBehaviour
                 bodyImage.sprite = body[3];
                 headSnapPoint.correctBodyID = 3;
                 artHeading.text = " OTTAM THULLAL ".ToString();
-                artHeading.text = "Ottam Thullal is a humorous solo dance from Kerala, created to entertain and educate people. It uses simple makeup, rhythmic movements, and satire to tell stories in a lively way. ".ToString();
+                artBody.text = "Ottam Thullal is a humorous solo dance from Kerala, created to entertain and educate people. It uses simple makeup, rhythmic movements, and satire to tell stories in a lively way. ".ToString();
 
             }
         }

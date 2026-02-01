@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameTimer : MonoBehaviour
@@ -10,6 +11,7 @@ public class GameTimer : MonoBehaviour
     private float currentTime;
 
     public TextMeshProUGUI timerText;
+    public Slider slider;
     private Coroutine SceneCoroutine;
     public GameObject gameOverPanel;
 
@@ -36,7 +38,8 @@ public class GameTimer : MonoBehaviour
     void UpdateTimerUI()
     {
         int seconds = Mathf.CeilToInt(currentTime);
-        timerText.text = "Time : " + seconds;
+        //timerText.text = "Time : " + seconds;
+        slider.value = seconds;
     }
 
     void GameOver()
@@ -47,7 +50,7 @@ public class GameTimer : MonoBehaviour
         Time.timeScale = 0f;
         gameOverPanel.SetActive(true);
 
-       StartCoroutine( On_Click_LoadMainmenu());
+       //StartCoroutine( On_Click_LoadMainmenu());
 
 
         // Show Game Over panel here

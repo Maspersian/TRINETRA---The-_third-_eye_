@@ -4,6 +4,13 @@ using System.Collections;
 public class MainMenuManager : MonoBehaviour
 {
     private Coroutine SceneCoroutine;
+    [SerializeField] private Animator Redanimator;
+    [SerializeField] private AnimationClip Redanim;
+
+    void Awake()
+    {
+        Redanimator.enabled = false;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +30,7 @@ public class MainMenuManager : MonoBehaviour
     {
         Application.Quit();
     }
-    public void On_Click_LoadMainmenu()
+    public void On_Click_LoadGameplay()
     {
         if (SceneCoroutine != null)
         {
@@ -34,9 +41,30 @@ public class MainMenuManager : MonoBehaviour
     }
     IEnumerator LoadGameplayRoutine()
     {
+        Redanimator.gameObject.SetActive(true);
+        Redanimator.enabled = true;
+        Redanimator?.Play(Redanim.name);
+        yield return new WaitForSeconds(Redanim.length);
+    
         GameFlowManager.Instance.ChangeState(GameState.Playing);
         yield return null; // wait one frame
         SceneManager.LoadSceneAsync("Gameplay");
-        Debug.Log("mainmenuLoaded");
+        Debug.Log("GamePlayLoaded");
+    }
+    public void On_Click_LoadMainmenu()
+    {
+        if (SceneCoroutine != null)
+        {
+            StopCoroutine(SceneCoroutine);
+            SceneCoroutine = null;
+        }
+        SceneCoroutine = StartCoroutine(LoadMainmenuRoutine());
+    }
+    IEnumerator LoadMainmenuRoutine()
+    {
+        GameFlowManager.Instance.ChangeState(GameState.MainMenu);
+        yield return null; // wait one frame
+        SceneManager.LoadSceneAsync("Mainmenu");
+        Debug.Log("LoadedAMinimenu");
     }
 }
