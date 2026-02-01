@@ -12,7 +12,7 @@ public class StartigScript : MonoBehaviour
     public static StartigScript instance;
     public int countNumber;
     public Animator animator;
-    public GameObject rightPanel, leftPanel, nextRoundPanel,winnerPanel,descriptionPanal;
+    public GameObject rightPanel, leftPanel, nextRoundPanel,winnerPanel,descriptionPanal,gameOverPanel;
     public TextMeshProUGUI clueTest;
     public GameObject clueTestgameObject;
     public List<Sprite> body = new List<Sprite>();
@@ -22,6 +22,7 @@ public class StartigScript : MonoBehaviour
     public TextMeshProUGUI artHeading;
     public TextMeshProUGUI artBody;
     public GameObject timer;
+    public int incorrectFaceCount;
     /*public List<GameObject> cutpeacePos= new List<GameObject>();
     public List<GameObject> cutpeaceEmptyPos= new List<GameObject>()*/
 
@@ -78,6 +79,10 @@ public class StartigScript : MonoBehaviour
 
             }
         }
+    }
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
     }
 
 }
