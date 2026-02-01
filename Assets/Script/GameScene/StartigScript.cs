@@ -16,7 +16,10 @@ public class StartigScript : MonoBehaviour
     public TextMeshProUGUI clueTest;
     public GameObject clueTestgameObject;
     public List<Sprite> body = new List<Sprite>();
+    public List<Sprite> fullbody = new List<Sprite>();
+
     public Image bodyImage;
+    public Image fullbodyImage;
     public int chekingNum;
     public HeadSnapPoint headSnapPoint;
     public TextMeshProUGUI artHeading;
@@ -45,6 +48,7 @@ public class StartigScript : MonoBehaviour
             {
                 clueTest.text = "Which dance-drama uses eye and facial expressions to tell epic stories".ToString();
                 bodyImage.sprite = body[0];
+                fullbodyImage.sprite = fullbody[0];
                 headSnapPoint.correctBodyID = 0;
                 artHeading.text = " KADHAKALI ".ToString();
                 artBody.text = " Kathakali is a classical dance-drama from Kerala, known for its bold makeup, large headgear, and expressive eye movements. It tells stories from Indian epics like the Ramayana and Mahabharata. ".ToString();
@@ -55,6 +59,7 @@ public class StartigScript : MonoBehaviour
             {
                 clueTest.text = "Which traditional performance features fire, intense movements, and ritual costumes?".ToString();
                 bodyImage.sprite = body[1];
+                fullbodyImage.sprite = fullbody[1];
                 headSnapPoint.correctBodyID = 1;
                 artHeading.text = " THEYYAM ".ToString();
                 artBody.text = " Theyyam is a ritual art form of North Kerala, where the performer is believed to become the deity during the performance. It features fiery costumes, face painting, and powerful movements. ".ToString();
@@ -64,6 +69,7 @@ public class StartigScript : MonoBehaviour
             {
                 clueTest.text = "Which traditional art form uses storytelling with dramatic makeup and costumes?".ToString();
                 bodyImage.sprite = body[2];
+                fullbodyImage.sprite = fullbody[2];
                 headSnapPoint.correctBodyID = 2;
                 artHeading.text = " YAKSHAGANA ".ToString();
                 artBody.text = " Yakshagana is a vibrant theatre dance form from Karnataka, combining dance, music, dialogue, and colorful costumes. Performances usually happen at night and narrate mythological stories. ".ToString();
@@ -72,6 +78,7 @@ public class StartigScript : MonoBehaviour
             {
                 clueTest.text = "Which solo dance form is known for humor and satire?".ToString();
                 bodyImage.sprite = body[3];
+                fullbodyImage.sprite = fullbody[3];
                 headSnapPoint.correctBodyID = 3;
                 artHeading.text = " OTTAM THULLAL ".ToString();
                 artBody.text = "Ottam Thullal is a humorous solo dance from Kerala, created to entertain and educate people. It uses simple makeup, rhythmic movements, and satire to tell stories in a lively way. ".ToString();
