@@ -9,6 +9,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Awake()
     {
+       if(Redanimator != null)
         Redanimator.enabled = false;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,9 +42,12 @@ public class MainMenuManager : MonoBehaviour
     }
     IEnumerator LoadGameplayRoutine()
     {
-        Redanimator.gameObject.SetActive(true);
-        Redanimator.enabled = true;
-        Redanimator?.Play(Redanim.name);
+        if(Redanimator != null)
+        {
+            Redanimator.gameObject.SetActive(true);
+            Redanimator.enabled = true;
+            Redanimator?.Play(Redanim.name);
+        }
         yield return new WaitForSeconds(Redanim.length);
     
         GameFlowManager.Instance.ChangeState(GameState.Playing);
